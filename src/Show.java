@@ -21,14 +21,23 @@ public class Show {
     }
 
     public void changeActor(Actor replacement, String surname) {
+        int countActors = 0;
+        int idActors = 0;
         for (Actor actor : actors) {
-            if(actor.surname.equals(surname)) {
-                System.out.println("Такой актер участвует, меняю...");
-                actors.remove(actor);
-                actors.add(replacement);
-                return;
+            if (actor.surname.equals(surname)) {
+                countActors++;
+                idActors = actors.indexOf(actor);
             }
-        }System.out.println("Актер не найден");
+        }
+        if (countActors == 1) {
+            System.out.println("Такой актер участвует, меняю...");
+            actors.remove(idActors);
+            actors.add(replacement);
+        } else if (countActors == 0) {
+            System.out.println("Актер не найден");
+        } else {
+            System.out.println("Актеров с такой фамилией: " + countActors + ". Отмена замены...");
+        }
     }
 
     public void printActors() {
@@ -39,7 +48,7 @@ public class Show {
 
     @Override
     public String toString() {
-        return "Show{" +
+        return "Show {" +
                 "director=" + director +
                 ", duration=" + duration +
                 ", title='" + title + '\'' +

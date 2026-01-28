@@ -5,13 +5,13 @@ public class Theatre {
         Actor actor2 = new Actor("Михаил", "Дубовик", Gender.MALE, 180);
         Actor actor3 = new Actor("Елена", "Витая", Gender.FEMALE, 172);
         Actor actor4 = new Actor("Анастасия", "Крутая", Gender.FEMALE, 172);
-        Actor actor5 = new Actor("Инна", "Николаева", Gender.FEMALE, 172);
+        Actor actor5 = new Actor("Инна", "Слуцкая", Gender.FEMALE, 172);
         Actor actor6 = new Actor("Константин", "Глухой", Gender.MALE, 172);
         Actor actor7 = new Actor("Федор", "Слепой", Gender.MALE, 172);
         Director director1 = new Director("Константин", "Слуцкий", Gender.MALE, 32);
         Director director2 = new Director("Квентин", "Торантино", Gender.MALE, 150);
-        String musicAuthor = "Чайковский";
-        String choreographer = "Мигель";
+        Person musicAuthor = new Person("Владимир", "Чайковский", Gender.MALE);
+        Person choreographer = new Person("Мигель", "Миг", Gender.MALE);
         String libretto = "ПРОЛОГ\n" +
                 "\n" +
                 "Старинный парк. Принцесса Одетта грустит. Внезапно появляется незнакомец в сопровождении свиты. Это Ротбарт – Злой гений. Он предлагает принцессе руку и сердце, но Одетта отвергает его. Ротбарт превращает ее в белого лебедя.\n" +
@@ -48,7 +48,7 @@ public class Theatre {
                 "\n" +
                 "Злой гений в ярости вызывает против влюбленных силы природы: начинается буря, сверкают молнии. Но ничто теперь уже не может сломить юную чистую любовь и разъединить Одетту и Зигфрида. Тогда Злой гений сам вступает в единоборство с принцем – и погибает. Его чары рушатся.\n" +
                 "\n" +
-                "Одетта превращается в девушку и вместе с Зигфридом радостно встречает первые лучи восходящего солнца." ;
+                "Одетта превращается в девушку и вместе с Зигфридом радостно встречает первые лучи восходящего солнца.";
 
         Show show = new Show(director1, 60, "Черный лес");
         show.addActor(actor2);
@@ -57,16 +57,16 @@ public class Theatre {
         System.out.println(show);
         show.printActors();
 
-        Ballet ballet = new Ballet(director2, 90, "Лебединое озеро",libretto, musicAuthor, choreographer);
+        Ballet ballet = new Ballet(director2, 90, "Лебединое озеро", libretto, musicAuthor, choreographer);
         ballet.addActor(actor3);
         ballet.addActor(actor4);
         ballet.addActor(actor5);
         System.out.println(ballet);
         ballet.printActors();
         ballet.printLibretto();
-        ballet.changeActor(actor2,"Слуцкая");
+        ballet.changeActor(actor2, "Бережки");
 
-        Opera opera = new Opera(director1,55,"Лебединое озеро2",libretto,musicAuthor,16);
+        Opera opera = new Opera(director1, 55, "Лебединое озеро2", libretto, musicAuthor, 16);
         opera.addActor(actor1);
         opera.addActor(actor7);
         opera.addActor(actor5);
@@ -74,7 +74,7 @@ public class Theatre {
         System.out.println(opera);
         opera.printActors();
         ballet.printLibretto();
-        opera.changeActor(actor6,"Слуцкая");
+        opera.changeActor(actor6, "Слуцкая");
         opera.printActors();
     }
 }
