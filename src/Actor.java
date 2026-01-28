@@ -1,7 +1,7 @@
 import java.util.Objects;
 
 public class Actor extends Person {
-    final int height;
+    protected int height;
 
     public Actor(String name, String surname, Gender gender, int height) {
         super(name, surname, gender);
@@ -25,6 +25,11 @@ public class Actor extends Person {
         hash *= 31;
         if (surname != null) {
             hash += surname.hashCode();
+        }
+
+        if (height != 0) {
+
+            hash += 31 * height;
         }
 
         return hash;
