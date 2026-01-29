@@ -1,7 +1,7 @@
 import java.util.Objects;
 
 public class Actor extends Person {
-    protected int height;
+    private int height;
 
     public Actor(String name, String surname, Gender gender, int height) {
         super(name, surname, gender);
@@ -14,6 +14,14 @@ public class Actor extends Person {
         Actor actor = (Actor) o;
         return Objects.equals(name, actor.name) && Objects.equals(height, actor.height) &&
                 Objects.equals(surname, actor.surname);
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     @Override
@@ -50,4 +58,5 @@ public class Actor extends Person {
                 ", Рост(" + height +
                 ')';
     }
+
 }
